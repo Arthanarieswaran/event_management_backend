@@ -1,12 +1,15 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="https://laravel.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
+  </a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+  <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+  <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+  <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
 # 🎉 Event Management Backend
 
@@ -16,12 +19,12 @@ It provides endpoints to create events, register attendees, and fetch attendee l
 ---
 
 ## 🚀 Features
-- Create new events with details (name, location, time, capacity)
-- List all upcoming events
-- Register attendees with validation (no duplicates, no overbooking)
-- View attendees of an event
-- Built with **Laravel** + **PostgreSQL**
-- Clean architecture (Models, Controllers, Services)
+- Create new events with details (name, location, time, capacity)  
+- List all upcoming events  
+- Register attendees with validation (no duplicates, no overbooking)  
+- View attendees of an event  
+- Built with **Laravel** + **PostgreSQL**  
+- Clean architecture (Models, Controllers, Services)  
 - Timezone-aware event scheduling
 
 ---
@@ -34,96 +37,44 @@ It provides endpoints to create events, register attendees, and fetch attendee l
 
 ---
 
-# ⚙️ Setup Instructions
+## ⚙️ Setup Instructions
 
 ```bash
-## Clone repo
+# Clone repository
 git clone https://github.com/YOUR_USERNAME/event-management-backend.git
 cd event-management-backend
 
-## Install dependencies
+# Install dependencies
 composer install
 
-## Copy env file
+# Copy environment file
 cp .env.example .env
 
-## Generate app key
+# Generate application key
 php artisan key:generate
 
-## Set database in .env
-DB_CONNECTION=pgsql
-DB_HOST=127.0.0.1
-DB_PORT=5432
-DB_DATABASE=event_management
-DB_USERNAME=your_user
-DB_PASSWORD=your_password
+# Set database in .env
+# DB_CONNECTION=pgsql
+# DB_HOST=127.0.0.1
+# DB_PORT=5432
+# DB_DATABASE=event_management
+# DB_USERNAME=your_user
+# DB_PASSWORD=your_password
 
-## Run migrations
+# Run database migrations
 php artisan migrate
 
-## Start server
+# Start server
 php artisan serve
 
----
 
 ---
 
-## 🌐 Environment Variables
+## 🌐 Frontend Repository
 
-After copying `.env.example` to `.env`, make sure to set the following variables:
+The frontend for this Event Management System is hosted separately.  
+You can find it here:
 
-```env
-APP_NAME="Event Management"
-APP_ENV=local
-APP_KEY=generated_key
-APP_DEBUG=true
-APP_URL=http://localhost
+[Event Management Frontend](https://github.com/Arthanarieswaran/event_management_frontend.git)
 
-DB_CONNECTION=pgsql
-DB_HOST=127.0.0.1
-DB_PORT=5432
-DB_DATABASE=event_management
-DB_USERNAME=your_user
-DB_PASSWORD=your_password
-
-
-
-## ⚙️ Sample API Requests
-
-```bash
-1. POST /events
-○ Creates a new event with fields: name, location, start_time, end_time,
-max_capacity
-
-curl --location 'http://127.0.0.1:8000/api/event?page=1&search='
-
-2. GET /events
-○ Lists all upcoming events
-
-curl --location 'http://127.0.0.1:8000/api/event' \
---header 'Content-Type: application/json' \
---data '{
-    "name": "Tech Conf",
-    "location": "Bengaluru, Ka",
-    "start_time": "2025-09-11T11:34",
-    "end_time": "2025-09-10T11:34",
-    "max_capacity": 3
-}'
-
-3. POST /events/{event_id}/register
-○ Registers an attendee (name, email) for a specific event
-○ Prevents overbooking (should not exceed max_capacity)
-○ Prevent duplicate registrations for the same email
-
-curl --location 'http://127.0.0.1:8000/api/events/1/register' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "name": "Kumar",
-    "email": "kumar@gmail.com"
-}'
-
-4. GET /events/{event_id}/attendees
-○ Returns all registered attendees for an event
-
-curl --location 'http://127.0.0.1:8000/api/events/1/attendees?page=1&search='
-
+### 🔹 Setup Instructions (Frontend)
