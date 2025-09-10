@@ -36,7 +36,7 @@ It provides endpoints to create events, register attendees, and fetch attendee l
 
 ## ⚙️ Setup Instructions
 
-```bash
+bash
 # Clone repo
 git clone https://github.com/YOUR_USERNAME/event-management-backend.git
 cd event-management-backend
@@ -63,3 +63,46 @@ php artisan migrate
 
 # Start server
 php artisan serve
+
+---
+
+
+## ⚙️ Sample API Requests
+
+```bash
+1. POST /events
+○ Creates a new event with fields: name, location, start_time, end_time,
+max_capacity
+
+curl --location 'http://127.0.0.1:8000/api/event?page=1&search='
+
+2. GET /events
+○ Lists all upcoming events
+
+curl --location 'http://127.0.0.1:8000/api/event' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Tech Conf",
+    "location": "Bengaluru, Ka",
+    "start_time": "2025-09-11T11:34",
+    "end_time": "2025-09-10T11:34",
+    "max_capacity": 3
+}'
+
+3. POST /events/{event_id}/register
+○ Registers an attendee (name, email) for a specific event
+○ Prevents overbooking (should not exceed max_capacity)
+○ Prevent duplicate registrations for the same email
+
+curl --location 'http://127.0.0.1:8000/api/events/1/register' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "Kumar",
+    "email": "kumar@gmail.com"
+}'
+
+4. GET /events/{event_id}/attendees
+○ Returns all registered attendees for an event
+
+curl --location 'http://127.0.0.1:8000/api/events/1/attendees?page=1&search='
+
