@@ -37,20 +37,20 @@ It provides endpoints to create events, register attendees, and fetch attendee l
 ## ⚙️ Setup Instructions
 
 bash
-# Clone repo
+## Clone repo
 git clone https://github.com/YOUR_USERNAME/event-management-backend.git
 cd event-management-backend
 
-# Install dependencies
+## Install dependencies
 composer install
 
-# Copy env file
+## Copy env file
 cp .env.example .env
 
-# Generate app key
+## Generate app key
 php artisan key:generate
 
-# Set database in .env
+## Set database in .env
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
@@ -58,10 +58,10 @@ DB_DATABASE=event_management
 DB_USERNAME=your_user
 DB_PASSWORD=your_password
 
-# Run migrations
+## Run migrations
 php artisan migrate
 
-# Start server
+## Start server
 php artisan serve
 
 ---
